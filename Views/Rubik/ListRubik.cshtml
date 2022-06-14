@@ -1,0 +1,77 @@
+﻿@model IEnumerable<LAB05_TranDinhNguyen.Models.Rubik>
+
+@{
+    ViewBag.Title = "ListRubik";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListRubik</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.maloai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ten)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.soluongton)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ngaycapnhat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.maloai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ten)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gia)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.hinh)*@
+            <img src="@item.hinh" width="270px" alt="hinh-thumbnail" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.soluongton)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ngaycapnhat)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detail", "Detail", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

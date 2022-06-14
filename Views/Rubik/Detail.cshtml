@@ -1,0 +1,83 @@
+﻿@model LAB05_TranDinhNguyen.Models.Rubik
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>Rubik</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.maloai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.maloai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hinh) <img src="@Html.DisplayFor(model => model.hinh)"
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.soluongton)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soluongton)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngaycapnhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngaycapnhat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

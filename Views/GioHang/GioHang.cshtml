@@ -1,0 +1,73 @@
+﻿@model IEnumerable<LAB05_TranDinhNguyen.Models.GioHang>
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GioHang</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ten)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.iSoluong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dThanhtien)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ten)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.hinh)*@
+                <img src="@item.hinh" width="180px" />
+            </td>
+            @using (Html.BeginForm("Capnhatgiohang", "GioHang", new { @id = item.id }))
+            {
+                <td> @String.Format("{0:0,0}", item.gia) VND</td>
+                <td><input type="number" min="1" name="txtSoluong" value="@item.iSoluong" /></td>
+                <td>@Html.DisplayFor(modelItem => item.dThanhtien)</td>
+                <td><a href="@Url.Action("Detail", "Rubik", new { @id = item.id })">Chi tiết</a> | @Html.ActionLink("Xoá", "XoaGiohang", new { @id = item.id })</td>
+                <td><input type="submit" value="Cập nhật" class=" btn btn-success" /></td>
+            }
+        </tr>
+    }
+    <tr style="font-weight:bold; text-align:left; color:red">
+        <td colspan="2">Số loại sách: @ViewBag.Tongsoluongsanpham</td>
+        <td colspan="2">Số lương sách: @ViewBag.Tongsoluong</td>
+        <td colspan="4">Tổng tiền: @String.Format("{0:0, 0}", ViewBag.Tongtien) VNĐ</td>
+    </tr>
+    <tr style="font-weight:bold; color:blue;text-align:right">
+        <td colspan="5">
+            @Html.ActionLink("Xoá giỏ hàng", "XoaTatCaGioHang")
+        </td>
+    </tr>
+
+    <tr style="font-weight:bold; color:yellow;text-align:right">
+        <td colspan="5">
+            @Html.ActionLink("Đặt hàng", "DatHang", "GioHang")
+        </td>
+    </tr>
+
+</table>
